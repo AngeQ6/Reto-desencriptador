@@ -30,14 +30,12 @@ function desencriptar() {
     const mensajeCifrado = document.getElementById('mensajeCifrado').value;
     let resultado = '';
 
-    // Reemplaza los espacios por ' '
+    
     const mensajeConEspacios = mensajeCifrado.replace(/\(\)/g, ' ');
 
-    // Recorre el mensaje teniendo en cuenta claves de varias longitudes
     for (let i = 0; i < mensajeConEspacios.length; ) {
         let encontrado = false;
 
-        // Intenta encontrar el mayor número de caracteres posibles que coincidan en letras
         for (let longitud = 2; longitud > 0; longitud--) {
             const subcadena = mensajeConEspacios.slice(i, i + longitud);
 
@@ -49,7 +47,7 @@ function desencriptar() {
             }
         }
 
-        // Si no encuentra una coincidencia, agrega el carácter original
+        
         if (!encontrado) {
             resultado += mensajeConEspacios[i];
             i++;
